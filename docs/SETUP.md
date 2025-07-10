@@ -45,6 +45,7 @@ All VMs run locally inside **UTM** on macOS.
 - Change the VM architecture to local computer's architecture 
 
 ####  Windows 10/11 Pro (Victim)
+poor endpoint being attacked 
 - Download Windows ARM64 ISO 
    notes on this
    I used Crystal Fetch to produce the latest ISO 
@@ -59,11 +60,15 @@ All VMs run locally inside **UTM** on macOS.
 
 - Install Wazuh agent: 
 C:\Program Files (x86)\ossec-agent this is where wazuh wizard is saved according to wazuh 
-  - Link to Wazuh manager IP
+  - Link to Wazuh manager IP 
+  Note to do this have to have debian machine setup as this is the wazuh manager
   todo still need to comment in this 
 - Enable PowerShell & process auditing in local group policy (more on this!! #todo)
 
-####  SIEM VM (Debian/Ubuntu)
+####  SIEM Server (Debian/Ubuntu)
+
+This is the wazuh manager/ siem server. This is where we collect all the logs from the windows vm like 
+a sys admin seeing an endpoint affected 
 - Download latest ARM64 Ubuntu/Debian ISO
 - Install Wazuh:
   - Use Docker quickstart:
@@ -74,6 +79,7 @@ C:\Program Files (x86)\ossec-agent this is where wazuh wizard is saved according
 - Expose Wazuh web UI on local port
 
 ####  Kali Linux (Attacker)
+This is the attacker trying to get in and sending traffick
 - Download Kali ARM64 ISO
 - Install tools:
   - `git`, `python3`, Atomic Red Team
