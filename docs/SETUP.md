@@ -126,15 +126,16 @@ sudo apt install openjdk-17-jdk opensearch -y
 cd /usr/share/opensearch/plugins/opensearch-security/tools/
 sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD="MyStrongAdminPass123!" bash ./install_demo_configuration.sh
 
-**Configure Firewall Rules **
+#Configure Firewall Rules 
 sudo ufw allow 1514/tcp   # Wazuh agent logs
 sudo ufw allow 1515/tcp   # Wazuh agent registration
 sudo ufw allow 5601/tcp   # Wazuh dashboard (Kibana equivalent)
-** Check for your ip adress** 
-** Update your windows agent ossec.conf file with the IP adress you obtained **
-```
+
+#Check for your ip adress
+ip a 
+# Update your windows agent ossec.conf file with the IP adress you obtained
 <address>DEBIAN_VM_IP</address>
-```
+```bash 
 
 ** Verify everything works by running **
 
