@@ -69,7 +69,41 @@ C:\Program Files (x86)\ossec-agent this is where wazuh wizard is saved according
 
 This is the wazuh manager/ siem server. This is where we collect all the logs from the windows vm like 
 a sys admin seeing an endpoint affected 
-- Download latest ARM64 Ubuntu/Debian ISO
+- On UTM you can download the prebuilt images. Just click on UTM from the zip (unextracted)
+then run all the following commands :
+#add explanation what each one is for pls
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl apt-transport-https gnupg2 -y
+then 
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg arch=arm64] https://packages.wazuh.com/4.x/apt/ stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
+then
+sudo apt update
+sudo apt install wazuh-manager -y
+then 
+sudo systemctl daemon-reload
+sudo systemctl enable --now wazuh-manager
+then
+sudo systemctl status wazuh-manager 
+
+
+once it is done 
+allow all (open firewall to alllow )
+sudo ufw allow 1514/tcp
+sudo ufw allow 1515/tcp 
+1514: agents send logs
+1515: for agent registration
+
+to note the wazuh manager 
+ip a 
+then use this ip adress to put on the windows agent ossec.conf <address>DEBIAN_VM_IP</address> 
+
+--- actually maybe put all this above in one bash in some part of the library? reference to it here but do explain what 
+each one is for 
+
+
+
 - Install Wazuh:
   - Use Docker quickstart:
     ```bash
