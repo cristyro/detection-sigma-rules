@@ -45,10 +45,22 @@ All VMs run locally inside **UTM** on macOS.
 - Change the VM architecture to local computer's architecture 
 
 ####  Windows 10/11 Pro (Victim)
-- Download Windows ARM64 ISO (Insider Preview)
+- Download Windows ARM64 ISO 
+   notes on this
+   I used Crystal Fetch to produce the latest ISO 
+   Once generated, create the vm using this existing iso 
+   - boot up by pressing any key on black screen. 
+   - install windows 11 pro (or latest release )
+   - make sure to delete the iso after the installation to avoid booting to the installation again idk why this happens 
 - Install Sysmon with a standard config (e.g., SwiftOnSecurity)
-- Install Wazuh agent:
+   Sysmon is a free logging tool in windows we are going to use to record the logs of the attacks and check procceses
+   (install from microsoft store - sysinternalsuite )
+   -> link to tuto - https://www.google.com/search?q=sysmon&oq=sysmon&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABNIBCDE1MDhqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:654d40a7,vid:98B9UmFr0qs,st:0
+
+- Install Wazuh agent: 
+C:\Program Files (x86)\ossec-agent this is where wazuh wizard is saved according to wazuh 
   - Link to Wazuh manager IP
+  todo still need to comment in this 
 - Enable PowerShell & process auditing in local group policy (more on this!! #todo)
 
 ####  SIEM VM (Debian/Ubuntu)
