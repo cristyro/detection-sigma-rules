@@ -76,7 +76,7 @@ All VMs run locally inside **UTM** on macOS.
 
 ---
 
-### ✅ 4. Simulate attacks
+###  4. Simulate attacks
 - Use Atomic Red Team:
   ```bash
   Invoke-AtomicTest T1059.001
